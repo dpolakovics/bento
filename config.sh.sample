@@ -11,3 +11,6 @@ REMOTE_IP=myserver.example
 #REMOTE_PORT=22
 # don't build locally
 #NOLOCALBUILD=1
+# Set to 0 to run commands locally instead of via SSH
+# Default is 1 (remote mode)
+#IS_REMOTE_MODE=1
