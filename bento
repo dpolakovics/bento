@@ -190,7 +190,7 @@ display_status() {
 }
 user_exists() {
     # skip if flag is set
-    if [ $SKIP_USER_CHECK -eq 1 ]; then return 0 ; fi
+    if [ "${SKIP_USER_CHECK:-0}" -eq 1 ]; then return 0 ; fi
     user="$1"
     if ! ssh ${REMOTE_IP} "id \"${user}\"" >/dev/null 2>/dev/null
     then
@@ -365,7 +365,7 @@ fi
 
 # nixos-rebuild doesn't report an error in case of lack of disk space on /boot
 # see #189966
-if [ "\$SUCCESS" -eq 0 ]
+if [ "\${SUCCESS}" -eq 0 ]
 then
     if grep "No space left" "\$LOGFILE"
     then
